@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+}
+
+#gray{
+    background-color: grey;
+}
+
+
+.haut{
+    width: 100%;
+    height: 70px;
+    /* border: 2px solid red; */
+    background-color: #188DC0;
+}
+
+.haut h1{
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+}
+
+.gauche{
+    width: 20%;
+    height:500px;
+    border: 1px solid black;
+    background-color: #188DC0;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    /* gap: 5px; */
+}
+
+
+
+.gauche button{
+    width: 100%;
+    height: 7%;
+    border: 2px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+     
+}
+
+.gauche button a{
+    text-decoration: none;
+    color: black;
+}

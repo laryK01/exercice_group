@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page connexion</title>
+    <link rel="stylesheet" href="../static/page_connexion.css">
+</head>
+<body>
+
+
+    <!-- header zoro -->
+
+    <section>
+        {%extends './base.html'%}
+    </section> 
+    
+    {% block contain %}
+
+    <!-- formulaire de connection -->
+    <section>
+        <div class="milieu">
+            <div class="element">
+                <h3>connectez-vous</h3>
+               <form action="{{url_for('index')}}" class="form">
+                <input type="text" class="form1" placeholder="identifiant"> 
+                <input type="text" class="form1" placeholder="Mot de passe" >
+                <button class="for" type="submit"><a href="{{url_for('accueil')}}">connexion</a></button>
+                <h5><a href="{{url_for('index')}}">si pas de compte inscrivez-vous</a></h5>
+               </form>
+               
+            </div>
+        </div>
+    </section>
+    {%endblock%}
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/formulaire.css">
+    <title>formulaire</title>
+</head>
+<body>
+
+    <!-- header zoro -->
+    
+    <section>
+       {% extends './base.html'%}
+    </section> 
+    <!-- navbar a gauche -->
+    <section>
+
+        {% block contain %}
+        <div class="grand">
+        <div class="gauche">
+
+            {% include './slide.html'%}
+
+        </div>
+
+        <!-- formulaire milieu -->
+        <div class="droite">
+            <h3>Ajouter un nouveau magasin</h3>
+            <form action="">
+                <label for="Nom">Nom:</label>
+                <input id="nom" type="text">
+                <label for="Adresse">Adresse:</label>
+                <input id="adresse" type="text">
+                <label for="Téléphone">Téléphone:</label>
+                <input id="Téléphone" type="tel">
+                <label for="email">E-mail:</label>
+                <input id="email" type="email">
+
+                <div class="droit">
+                    <button class="bout"><a href="{{url_for('accueil')}}">Retour</a></button>
+                   <button id="bout1" type="submit" ><a href="{{url_for('ajout_magasin')}}">Valider</a></button>
+                </div>
+            </form>
+        </div>
+
+        {% endblock%}
+    </section>    
+</body>
+</html>

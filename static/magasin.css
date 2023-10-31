@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+}
+
+.haut{
+    width: 100%;
+    height: 70px;
+    /* border: 2px solid red; */
+    background-color: #188DC0;
+}
+
+.haut h1{
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+}
+
+.grand{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px; 
+
+}
+
+.gauche{
+    width: 20%;
+    height:100%;
+    color: black;
+    border: 1px solid black;
+    background-color: #188DC0;
+    display: flex;
+    flex-direction:row ;
+    padding-top: 30px;
+    
+}
+
+#gray{
+    background-color: grey;
+}
+
+
+.gauche button{
+    width: 100%;
+    height: 7%;
+    border: 2px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.gauche button a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.droite{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 50px;
+    /* border: 3px solid green; */
+}
+
+
+.magasin8{
+    color: rgb(127, 191, 31) ;
+    background-color: rgb(217, 231, 244);
+}
+
+.magasin5{
+    color: rgb(127, 191, 31) ;
+    background-color: rgb(181, 217, 233);
+}
+
+.table .vert{
+   background-color: rgba(43, 128, 0, 0.171);
+   width: 40%;
+   border: 1px solid rgb(0, 183, 255);
+   text-align: center;
+}
+
+.btn{
+    width: 100%;
+    height: 20%;
+    /* border: 2px solid saddlebrown; */
+}
+.table{
+    width: 100%;
+    height: 75%;
+    /* border: 4px solid skyblue; */
+}
+.droite h4{
+    margin-top: 10px;
+}
+
+.btn button{
+    height: 50%;
+    width: 15%; 
+    background-color: green;
+    /* color: white; */
+    margin-top: 15px;
+    margin-left: 75%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.droite button a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+table{
+    width: 100%;
+    height: 60%;
+    border: 2px solid white;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+ 
+table td{
+    width: 10%;
+    height: 35px;
+    border: 2px solid white;
+   
+} 
+
+table .tr1{
+    background-color: #188DC0;
+    color: white;
+}
+
+table .tr2{
+    background-color: rgb(181, 217, 233);
+}
+
+
+table .tr3{
+    background-color: rgb(217, 231, 244);
+}
+
+
+.modif{
+    width: 40%;
+    height: 80%;
+    background-color: #ffc000;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+
+.sup{
+    width: 40%;
+    height: 80%;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+

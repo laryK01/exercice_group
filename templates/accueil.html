@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/accueil.css">
+    <title>accueil</title>
+</head>
+<body>
+
+    <!-- header zoro -->
+
+    {% extends './base.html' %}
+
+     <!-- navbar a gauche -->
+     {% block contain %}
+     <section>
+        <div class="gauche">
+    
+            {% include './slide.html' %}
+           
+        </div>
+    </section>
+    {%endblock %}   
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire2</title>
+    <link rel="stylesheet" href="../static/formulaire.css">
+</head>
+<body>
+    <!-- header zoro -->
+    <section>
+        {% extends './base.html'%}
+    </section>  
+
+    
+    {% block contain %}
+    <section>
+      
+        <!-- navbar a auche -->
+        <div class="grand">
+
+        <div class="gauche">
+
+           {% include './slide.html'%}
+
+        </div>
+
+        <!-- formulaire2 -->
+
+        <div class="droite">
+            <h3>Modifier un magasin</h3>
+            <form action="">
+                <label for="Nom">Nom:</label>
+                <input class="value" type="text" value="Magasin 5">
+                <label for="Adresse">Adresse:</label>
+                <input class="value" type="text" value="Adresse 5">
+                <label for="Téléphone">Téléphone:</label>
+                <input id="val" type="tel" value="Téléphone M">
+                <label for="email">E-mail:</label>
+                <input class="value" type="email" value="E-mail 5">
+
+                <div class="droit">
+                    <button class="bout"><a href="{{url_for('ajout_magasin')}}">Retour</a></button>
+                   <button id="bout1" type="submit" ><a href="{{url_for('magasin_modif')}}">Valider</a></button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    {% endblock %}
+</body>
+</html>

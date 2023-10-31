@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+}
+
+
+.haut{
+    width: 100%;
+    height: 70px;
+    /* border: 2px solid red; */
+    background-color: #188DC0;
+}
+
+.haut h1{
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+}
+
+
+.grand{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px; 
+    /* border: 2px solid red; */
+
+}
+
+.gauche{
+    width: 20%;
+    height:100%;
+    border: 1px solid black;
+    background-color: #188DC0;
+    display: flex;
+    flex-direction:row ;
+    padding-top: 30px;
+    /* border: 2px solid blueviolet; */
+    
+}
+
+#gray{
+    background-color: grey;
+}
+
+
+
+.gauche button{
+    width: 100%;
+    height: 7%;
+    border: 2px solid black;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.gauche button a{
+    text-decoration: none;
+    color: black;
+}
+.droite{
+    width: 70%;
+    height: 500px;
+    /* border: 2px solid magenta; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.droite form{
+    width: 100%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 10% 60%;
+    row-gap: 20px;
+    /* border: 2px solid olivedrab; */
+}
+
+.droite h3{
+    margin-right: 70%;
+}
+
+.droit{
+    height: 80%;
+    grid-column: 1 / -1;
+    display: flex;
+    /* border: 1px solid red; */
+    margin-left: 30%;
+    margin-top: 20px;
+    /* justify-content: space-between; */
+}
+.droit button{
+    width: 170px;
+    height: 60px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.bout a{
+    text-decoration: none;
+    color: white;
+}
+
+.bout{
+    background-color: red;
+}
+
+#bout1{
+    background-color: green;
+    color: white;
+}
+
+#bout1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.value{
+    text-align: center;
+}
+
+#val{
+    text-align: center;
+    color: rgb(136, 209, 27);
+}
