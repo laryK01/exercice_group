@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/formulaire.css">
+    <title>formulaire</title>
+</head>
+<body>
+
+    <!-- header zoro -->
+    
+    <section>
+       {% extends './base.html'%}
+    </section> 
+    <!-- navbar a gauche -->
+    <section>
+
+        {% block contain %}
+        <div class="grand">
+        <div class="gauche">
+
+            {% include './slide.html'%}
+
+        </div>
+
+        <!-- formulaire milieu -->
+        <div class="droite">
+            <h3>Ajouter un nouveau Produit</h3>
+            <form action="">
+                <label for="NomProduit">NomProduit:</label>
+                <input id="NomProduit" type="text">
+                <label for="Categorie">Categorie:</label>
+                <input id="Categorie" type="text">
+                <label for="Prix">Prix:</label>
+                <input id="Prix" type="tel">
+                <label for="Date-fin">Date-fin:</label>
+                <input id="Date-fin" type="text">
+
+                <div class="droit">
+                    <button class="bout"><a href="{{url_for('accueil')}}">Retour</a></button>
+                   <button id="bout1" type="submit" ><a href="{{url_for('table_produit')}}">Valider</a></button>
+                </div>
+            </form>
+        </div>
+
+        {% endblock%}
+    </section>    
+</body>
+</html>

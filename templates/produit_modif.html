@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/magasin.css">
+</head>
+<body>
+
+    <!-- header zoro -->
+    <section>
+        {% extends './base.html'%}
+    </section>  
+
+    <!-- navbar a gauche -->
+
+    {% block contain %}
+
+    <section>
+        <div class="grand">
+        <div class="gauche">
+
+            <div class="sous-gauche">
+                <button ><a href="{{url_for('index')}}">Accueil</a></button>
+                <button id="gray"><a href="{{url_for('formulaire')}}">Magasin</a></button>
+                <button> <a href="">Produit</a></button>
+                <button><a href="">Vente</a></button>
+                <button><a href="">Stock</a></button>
+                <button><a href="{{url_for('index')}}">Déconnexion</a></button>
+            </div>
+        </div>
+
+        <!-- bouton + tableau de modification Produit5  -->
+        <div class="droite">
+
+            <div class="btn">
+                <button><a href="{{url_for('formulaire_produit')}}">Ajouter</a></button>
+            </div>
+
+
+            <div class="table">
+                <h4 class="vert">Le produit 5 a été modifié avec succés</h4>
+
+                <table>
+                    <tr class="tr1">
+                        <td>id</td>
+                        <td>NomProduit</td>
+                        <td>CategorieProduit</td>
+                        <td>prix</td>
+                        <td>Action</td>
+                    </tr>
+
+                    <tr class="tr2">
+                        <td>1</td>
+                        <td>NomProduit 1</td>
+                        <td>CategorieProduit 1</td>
+                        <td>Prix 1</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+
+                    <tr class="tr3">
+                        <td>2</td>
+                        <td>NomProduit 2</td>
+                        <td>CategorieProduit 2</td>
+                        <td>Prix 2</td>>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+
+                    <tr class="tr2">
+                        <td>3</td>
+                        <td>NomProduit 3</td>
+                        <td>CategorieProduit 3</td>
+                        <td>Prix 3</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+
+                    <tr class="tr3">
+                        <td>4</td>
+                        <td>NomProduit 4</td>
+                        <td>CategorieProduit 4</td>
+                        <td>Prix 4</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+                    <tr class="magasin5">
+                        <td>5</td>
+                        <td>NomProduit 5</td>
+                        <td>CategorieProduit 5</td>
+                        <td>Prix 5</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+                    <tr class="tr3">
+                        <td>6</td>
+                        <td>NomProduit 6</td>
+                        <td>CategorieProduit 6</td>
+                        <td>Prix 6</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+                    <tr class="tr2">
+                        <td>7</td>
+                        <td>NomProduit 7</td>
+                        <td>CategorieProduit 7</td>
+                        <td>Prix 7</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+
+                    <tr class="tr3">
+                        <td>8</td>
+                        <td>Nouveau</td>
+                        <td>Nouveau</td>
+                        <td>Nouveau</td>
+                        <td>
+                            <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
+                            <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    {% endblock %}
+    
