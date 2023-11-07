@@ -42,95 +42,22 @@
                     <td>Mail</td>
                     <td>Action</td>
                 </tr>
-                   
+                 {% for elements in liste %}
                 <tr class="tr2">
-                    <td>1</td>
-                    <td>Magasin 1</td>
-                    <td>Adresse 1</td>
-                    <td>Téléphone 1</td>
-                    <td>E-mail 1</td>
+                    <td>{{ elements[0]}}</td>
+                    <td>{{ elements[1]}}</td>
+                    <td>{{ elements[2]}}</td>
+                    <td>{{ elements[3]}}</td>
+                    <td>{{ elements[4]}}</td>
                     <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
+                        <button class="modif"><a href="/form_modif/{{elements[0]}}">Modifier</a></button>
+                        <button class="sup"><a href="/suppression_form/{{elements[0]}}">Supprimer</a></button>
                     </td>
                     
                 </tr>
+                {% endfor%}
 
-
-                <tr class="tr3">
-                    <td>2</td>
-                    <td>Magasin 2</td>
-                    <td>Adresse 2</td>
-                    <td>Téléphone 2</td>
-                    <td>E-mail 2</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                     </td>
-
-                </tr>
-
-
-                <tr class="tr2">
-                    <td>3</td>
-                    <td>Magasin 3</td>
-                    <td>Adresse 3</td>
-                    <td>Téléphone 3</td>
-                    <td>E-mail 3</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-
-                <tr class="tr3">
-                    <td>4</td>
-                    <td>Magasin 4</td>
-                    <td>Adresse 4</td>
-                    <td>Téléphone 4</td>
-                    <td>E-mail 4</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr2">
-                    <td>5</td>
-                    <td>Magasin 5</td>
-                    <td>Adresse 5</td>
-                    <td>Téléphone 5</td>
-                    <td>E-mail 5</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr3">
-                    <td>6</td>
-                    <td>Magasin 6</td>
-                    <td>Adresse 6</td>
-                    <td>Téléphone 6</td>
-                    <td>E-mail 6</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr2">
-                    <td>7</td>
-                    <td>Magasin 7</td>
-                    <td>Adresse 7</td>
-                    <td>Téléphone 7</td>
-                    <td>E-mail 7</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form')}}">Supprimer</a></button>
-                    </td>
-                </tr>
+                
             </table>
         </div>
         </div>

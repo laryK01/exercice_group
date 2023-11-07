@@ -27,19 +27,19 @@
         <!-- formulaire milieu -->
         <div class="droite">
             <h3>Ajouter un nouveau magasin</h3>
-            <form action="">
+            <form action="{{url_for('formulaire')}}" method="post">
                 <label for="Nom">Nom:</label>
-                <input id="nom" type="text">
+                <input id="nom" type="text" name="nom" required>
                 <label for="Adresse">Adresse:</label>
-                <input id="adresse" type="text">
-                <label for="Téléphone">Téléphone:</label>
-                <input id="Téléphone" type="tel">
-                <label for="email">E-mail:</label>
-                <input id="email" type="email">
+                <input id="Adresse" type="text" name="Adresse" required>
+                <label for="Ville">Ville:</label>
+                <input id="Ville" type="text" name="Ville" required>
+                <label for="CodePostal">CodePostal:</label>
+                <input id="CodePostal" type="text" name="CodePostal" required>
 
                 <div class="droit">
-                    <button class="bout"><a href="{{url_for('accueil')}}">Retour</a></button>
-                   <button id="bout1" type="submit" ><a href="{{url_for('ajout_magasin')}}">Valider</a></button>
+                    <button class="bout"><a href="{{url_for('magasin')}}">Retour</a></button>
+                   <button id="bout1" type="submit" >Valider</button>
                 </div>
             </form>
         </div>

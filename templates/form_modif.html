@@ -29,19 +29,19 @@
 
         <div class="droite">
             <h3>Modifier un magasin</h3>
-            <form action="">
+            <form action="" method="post">
                 <label for="Nom">Nom:</label>
-                <input class="value" type="text" value="Magasin 5">
+                <input class="value" name="Nom" type="text" value="{{data[1]}}">
                 <label for="Adresse">Adresse:</label>
-                <input class="value" type="text" value="Adresse 5">
-                <label for="Téléphone">Téléphone:</label>
-                <input id="val" type="tel" value="Téléphone M">
-                <label for="email">E-mail:</label>
-                <input class="value" type="email" value="E-mail 5">
+                <input class="value" name="Adresse" type="text" value="{{data[2]}}">
+                <label for="Ville">Ville:</label>
+                <input id="val" type="text" name="Ville" value="{{data[3]}}">
+                <label for="CodePostal">CodePostal:</label>
+                <input class="value" type="text" name="CodePostal" value="{{data[4]}}">
 
                 <div class="droit">
-                    <button class="bout"><a href="{{url_for('ajout_magasin')}}">Retour</a></button>
-                   <button id="bout1" type="submit" ><a href="{{url_for('magasin_modif')}}">Valider</a></button>
+                    <button class="bout"><a href="{{url_for('magasin')}}">Retour</a></button>
+                   <button id="bout1" type="submit" >Valider</button>
                 </div>
             </form>
         </div>

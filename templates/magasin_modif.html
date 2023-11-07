@@ -21,14 +21,7 @@
         <div class="grand">
         <div class="gauche">
 
-            <div class="sous-gauche">
-                <button ><a href="{{url_for('index')}}">Accueil</a></button>
-                <button id="gray"><a href="{{url_for('formulaire')}}">Magasin</a></button>
-                <button> <a href="">Produit</a></button>
-                <button><a href="">Vente</a></button>
-                <button><a href="">Stock</a></button>
-                <button><a href="{{url_for('index')}}">Déconnexion</a></button>
-            </div>
+           {% include './slide.html' %}
         </div>
 
         <!-- bouton + tableau de modification du magasin5 -->
