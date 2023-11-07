@@ -11,11 +11,10 @@
     <!-- header zoro -->
 
     <section>
-        <div class="haut">
-            <h1>ZORO</h1>
-        </div>
+        {% extends './base.html'%}
     </section>  
 
+    {% block contain %}
     <!-- navbar a gauche -->
     <section>
         <div class="grand">
@@ -63,6 +62,6 @@
         </div>
         </div>
     </section>
-    
+    {% endblock %}
 </body>
 </html>

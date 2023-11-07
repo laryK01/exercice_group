@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire2</title>
+    <link rel="stylesheet" href="../static/formulaire.css">
+</head>
+<body>
+    <!-- header zoro -->
+    <section>
+        {% extends './base.html'%}
+    </section>  
+
+    
+    {% block contain %}
+    <section>
+      
+        <!-- navbar a auche -->
+        <div class="grand">
+
+        <div class="gauche">
+
+           {% include './slide.html'%}
+
+        </div>
+
+        <!-- formulaire2 -->
+
+        <div class="droite">
+            <h3>Modifier un produit</h3>
+            <form  method="post"  action="{{url_for('form_modif_p',Prod_id=mybase[0])}}" >
+                <label for="NomProduit">NomProduit:</label>
+                <input class="value" type="text" name="NomProduit"  value="{{mybase[1]}}">
+
+                <label for="Categorie">Categorie:</label>
+                <input class="value" type="text" name="CategorieProduit" value="{{mybase[2]}}">
+
+                <label for="prix">Prix:</label>
+                <input id="val" type="tel" name="PrixUnitaire" value="{{mybase[3]}}">
+                
+                <div class="droit">
+                    <button class="bout"><a href="{{url_for('produit')}}">Retour</a></button>
+                   <button id="bout1" type="submit"> Valider</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    {% endblock %}
+</body>
+</html>
