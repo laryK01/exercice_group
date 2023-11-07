@@ -15,119 +15,58 @@
     </section>  
 
     {% block contain %}
-    <!-- navbar a gauche -->
-    <section>
-        <div class="grand">
-        <div class="gauche">
-            {% include './slide.html' %}
-        </div>
-
-
-        <!-- bouton + tableau -->
-        
-        <div class="droite">
-            <div class="btn">
-                <button><a href="{{url_for('formulaire_produit')}}">Ajouter</a></button>
+        <!-- navbar a gauche -->
+        <section>
+            <div class="grand">
+            <div class="gauche">
+                {% include './slide.html' %}
             </div>
-           <div class="table">
-            <h4>Listes des Produits</h4>
 
-            <table>
-                <tr class="tr1">
-                    <td>id</td>
-                    <td>NomProduit</td>
-                    <td>CategorieProduit</td>
-                    <td>prix</td>
-                    <td>Action</td>
-                </tr>
-                   
-                <tr class="tr2">
-                    <td>1</td>
-                    <td>produit 1</td>
-                    <td>CategorieProduit 1</td>
-                    <td>prix 1</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
+
+            <!-- bouton + tableau -->
+            
+            <div class="droite">
+                <div class="btn">
+                    <button><a href="{{url_for('formulaire_produit')}}">Ajouter</a></button>
+                </div>
+
+            <div class="table">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                <div class="alert-{{category}}">{{message}}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <h4>Listes des Produits</h4>
+                <table>
+                    <tr class="tr1">
+                        <td>id</td>
+                        <td>NomProduit</td>
+                        <td>CategorieProduit</td>
+                        <td>prix</td>
+                        <td>Action</td>
+                    </tr>
                     
-                </tr>
-
-
-                <tr class="tr3">
-                    <td>2</td>
-                    <td>produit 2</td>
-                    <td>CategorieProduit 2</td>
-                    <td>prix 2</td>
-                    <td>
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                     </td>
-
-                </tr>
-
-
-                <tr class="tr2">
-                    <td>3</td>
-                    <td>produit 3</td>
-                    <td>CategorieProduit 3</td>
-                    <td>prix 3</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-
-                <tr class="tr3">
-                <td>4</td>
-                <td>NomProduit 4</td>
-                <td>CategorieProduit 4</td>
-                <td>prix 4</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr2">
-                    <td>5</td>
-                    <td>NomProduit 5</td>
-                    <td>CategorieProduit 5</td>
-                    <td>prix 5</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr3">
-                    <td>6</td>
-                    <td>NomProduit 6</td>
-                    <td>CategorieProduit 6</td>
-                    <td>prix 6</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-                <tr class="tr2">
-                    <td>7</td>
-                    <td>NomProduit 7</td>
-                    <td>CategorieProduit 7</td>
-                    <td>prix 7</td>
-                    <td >
-                        <button class="modif"><a href="{{url_for('form_modif_p')}}">Modifier</a></button>
-                        <button class="sup"><a href="{{url_for('suppression_form_p')}}">Supprimer</a></button>
-                    </td>
-                </tr>
-
-            </table>
-        </div>
-        </div>
-        </div>
-    </section>
+                    {% for row in mybase%}
+                    <tr class="tr2">
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td >
+                            <button class="modif"><a href="/form_modif_p/{{row[0]}}">Modifier</a></button>
+                            <button class="sup"><a onclick="return confirm('Voulez-vous supprimer?')" href="/sup_produit/{{row[0]}}" >Supprimer</a></button>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    
+                </table>
+            </div>
+            </div>
+            </div>
+        </section>
 
     {% endblock %}
     

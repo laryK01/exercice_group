@@ -27,19 +27,19 @@
         <!-- formulaire milieu -->
         <div class="droite">
             <h3>Ajouter un nouveau Produit</h3>
-            <form action="">
+            <form method="post" action="{{url_for('formulaire_produit')}}">
                 <label for="NomProduit">NomProduit:</label>
-                <input id="NomProduit" type="text">
+                <input id="NomProduit" type="text" name="NomProduit" required class="form-control">
                 <label for="Categorie">Categorie:</label>
-                <input id="Categorie" type="text">
+                <input id="Categorie" type="text" name="CategorieProduit"  required class="form-control">
                 <label for="Prix">Prix:</label>
-                <input id="Prix" type="tel">
-                <label for="Date-fin">Date-fin:</label>
-                <input id="Date-fin" type="text">
-
+                <input id="Prix" type="tel" name="PrixUnitaire"  required class="form-control">
+                <!-- <button>
+                    Valider
+                </button> -->
                 <div class="droit">
                     <button class="bout"><a href="{{url_for('accueil')}}">Retour</a></button>
-                   <button id="bout1" type="submit" ><a href="{{url_for('table_produit')}}">Valider</a></button>
+                   <button id="bout1" type="submit">Valider</button>
                 </div>
             </form>
         </div>

@@ -1,6 +1,35 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,request,url_for,flash,redirect
 app = Flask(__name__)
+app.config['SECRET_KEY'] ='clés_flash'
+
+import pypyodbc  as odbc #pip install pypyodbc
+DRIVER_NAME = 'SQL SERVER'
+SERVER_NAME = 'MTN-Academy\SQLEXPRESS'
+DATABASE_NAME = 'exercice_group'
+
+
+#   uid=<username>
+#     pwd =<password>
+
+connection_string = f"""   
+    DRIVER={{{DRIVER_NAME}}};
+    SERVER={SERVER_NAME};
+    DATABASE={DATABASE_NAME};
+    Trust_connection=yes;
+"""
+
+conn = odbc.connect(connection_string)
+print("conn")
+
+# cursor = conn.cursor()
+# exe = list(cursor.execute('SELECT * FROM Magasin'))
+# print(exe)
+
+
+
+
 @app.route("/")
+@app.route("/index")
 def index():
     return render_template("page_connexion.html")
 
@@ -50,19 +79,57 @@ def sup_magasin():
 
 @app.route("/produit/")
 def produit():
-    return render_template("produit.html")
-
-@app.route("/formulaire_produit/")
+    conn = odbc.connect(connection_string)
+    cur = conn.cursor()
+    cur.execute("select * from produit")
+    base = cur.fetchall()
+    return render_template("produit.html", mybase=base)
+    
+@app.route("/formulaire_produit/", methods=['GET', 'POST'])
 def formulaire_produit():
-    return render_template("formulaire_produit.html")
+    if request.method == 'POST':
+        NomProduit = request.form['NomProduit']
+        CategorieProduit = request.form['CategorieProduit']
+        PrixUnitaire = request.form['PrixUnitaire']
+        conn = odbc.connect(connection_string)
+        cur = conn.cursor()
+        cur.execute('''
+              INSERT INTO Produit(NomProduit, CategorieProduit,PrixUnitaire)
+              VALUES(?, ?, ?) ''', (NomProduit, CategorieProduit, PrixUnitaire))
+        conn.commit()
+        conn.close()
+        flash('produit bien enregistré','succès')
+        return redirect(url_for("produit"))
+    base = ''
+    return render_template("formulaire_produit.html", mybase=base )
+
 
 @app.route("/table_produit/")
 def table_produit():
     return render_template("table_produit.html")
 
-@app.route("/form_modif_p/")
-def form_modif_p():
-    return render_template("form_modif_p.html")
+@app.route('/form_modif_p/<int:Prod_id>', methods=['POST', 'GET'])
+def form_modif_p(Prod_id):
+    
+    if request.method == 'POST':
+            NomProduit = request.form['NomProduit']
+            CategorieProduit = request.form['CategorieProduit']
+            PrixUnitaire = request.form['PrixUnitaire']
+            conn = odbc.connect(connection_string)
+            cur = conn.cursor()
+            cur.execute('''
+                        update Produit set NomProduit=?,CategorieProduit=?, PrixUnitaire=? where ProduitID=?''',
+                        (NomProduit, CategorieProduit, PrixUnitaire, Prod_id))
+            conn.commit()
+            conn.close()
+            flash('produit bien modifié','succès')
+            return redirect(url_for("produit"))
+    Prod_id = int(Prod_id)
+    conn = odbc.connect(connection_string)
+    cur = conn.cursor()
+    cur.execute("select * from Produit where ProduitID=?", (Prod_id,))
+    base = cur.fetchone()
+    return render_template("form_modif_p.html", mybase=base)
 
 
 @app.route("/suppression_form_p/")
@@ -70,9 +137,59 @@ def suppression_form_p():
     return render_template("suppression_form_p.html")
 
 
-@app.route("/sup_produit/")
-def sup_produit():
-    return render_template("sup_produit.html")
+@app.route("/sup_produit/<int:sup>", methods=['POST','GET'])
+def sup_produit(sup):
+    conn = odbc.connect(connection_string)
+    cur = conn.cursor()
+    cur.execute("delete from produit where ProduitID=?", (sup,))
+    conn.commit()
+    flash(' votre produit a été supprimé','succès')
+    return redirect(url_for("produit"))
+
+
+@app.route("/liste_stock/")
+def liste_stock():
+    conn = odbc.connect(connection_string)
+    cur = conn.cursor()
+    cur.execute("select StockID,QuantiteEnStock, NomMagasin,NomProduit from Stock inner join Magasin on Stock.MagasinID = Magasin.MagasinID inner join Produit on Stock.ProduitID = Produit.ProduitID")
+    base = cur.fetchall()
+    return render_template("liste_stock.html", mybase=base)
+
+
+
+# @app.route("/produit/")
+# def produit():
+#     conn = odbc.connect(connection_string)
+#     cur = conn.cursor()
+#     cur.execute("select * from produit")
+#     base = cur.fetchall()
+#     return render_template("produit.html", mybase=base)
+
+
+
+# @app.route('/form_modif_stock/<int:stock>', methods=['POST', 'GET'])
+# def form_modif_stock(stock):
+    
+#     if request.method == 'POST':
+#             QuantiteEnStock = request.form['QuantiteEnStock']
+#             MagasinID = request.form[' MagasinID']
+#             ProduitID = request.form['ProduitID']
+#             conn = odbc.connect(connection_string)
+#             cur = conn.cursor()
+#             cur.execute('''
+#                         update Stock set QuantiteEnStock=?,MagasinID=?, ProduitID=? where StockID=?''',
+#                         (QuantiteEnStock, MagasinID, ProduitID, stock))
+#             conn.commit()
+#             conn.close()
+#             flash('produit bien modifié','succès')
+#             return redirect(url_for("produit"))
+#     stock = int(stock)
+#     conn = odbc.connect(connection_string)
+#     cur = conn.cursor()
+#     cur.execute("select * from Produit where ProduitID=?", (stock,))
+#     base = cur.fetchone()
+#     return render_template("form_modif_stock.html", mybase=base)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
